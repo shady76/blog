@@ -1,11 +1,494 @@
----
-layout: default
-title: Shady's Blog
----
-<h2>{{ page.title }}</h2>
-<p>最新文章</p>
-<ul>
-    {% for post in site.posts %}
-    <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Imtxc's Blog</title>
+    <meta name="author" content="imtxc">
+
+
+    <meta name="description" content="在知乎上看到这个问题，由于在英文 linux 的 firefox 中的 clearly 只能连接 evernote 账户而不能切换到中文的“印象笔记”，因此通过修改该插件的方式得到连接 “印象笔记” 的功能。 系统环境
+系统: Linux arch-laptop 3.12.0-1-ARCH #1 &hellip;">
+
+
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="canonical" href="http://imtxc.github.com">
+    <link href="/favicon.png" rel="icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/modernizr-2.0.js"></script>
+    <script src="/javascripts/ender.js"></script>
+    <script src="/javascripts/octopress.js" type="text/javascript"></script>
+    <link href="/atom.xml" rel="alternate" title="Imtxc's Blog" type="application/atom+xml">
+    <!--Fonts from Google"s Web font directory at http://google.com/webfonts-->
+    <!--
+       -<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+       -<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+       -->
+
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29827590-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+
+</head>
+
+<body   >
+<header role="banner"><hgroup>
+    <h1><a href="/">Imtxc's Blog</a></h1>
+
+</hgroup>
+
+</header>
+<nav role="navigation"><ul class="subscription" data-subscription="rss">
+    <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+
 </ul>
+
+    <form action="http://google.com/search" method="get">
+        <fieldset role="search">
+            <input type="hidden" name="q" value="site:imtxc.github.com" />
+            <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+        </fieldset>
+    </form>
+
+    <ul class="main-navigation">
+        <li><a href="/">博客</a></li>
+        <li><a href="/blog/archives">存档</a></li>
+        <li><a href="/about">关于</a></li>
+        <!--<li><a href="/resume">简历</a></li>-->
+    </ul>
+
+</nav>
+<div id="main">
+<div id="content">
+<div class="blog-index">
+
+
+
+<article>
+
+    <header>
+
+        <h1 class="entry-title"><a href="/blog/2014/03/08/zai-ying-wen-linux-zhong-shi-yong-firefox-de-yin-xiang-bi-ji-yue-du-cha-jian/">在英文 Linux 中使用 Firefox 的印象笔记-悦读插件</a></h1>
+
+
+        <p class="meta">
+
+
+
+
+
+
+
+
+
+
+
+
+            <time datetime="2014-03-08T00:47:00+08:00" pubdate data-updated="true">Mar 8<span>th</span>, 2014</time>
+
+        </p>
+
+    </header>
+
+
+    <div class="entry-content"><p class="info">在<a href="http://t.cn/8FFrsaI">知乎</a>上看到这个问题，由于在英文 linux 的 firefox 中的 clearly 只能连接 evernote 账户而不能切换到中文的“印象笔记”，因此通过修改该插件的方式得到连接 “印象笔记” 的功能。</p>
+
+        <h4 id="section">系统环境</h4>
+        <p>系统: Linux arch-laptop 3.12.0-1-ARCH #1 SMP PREEMPT Wed Nov 6 09:06:27 CET 2013 x86_64 GNU/Linux
+            Firefox 版本: 25
+            Clearly 版本: 9.4.7</p>
+
+        <h4 id="section-1">修改步骤</h4>
+        <p>1、安装 clearly， 如果之前用 clearly 登录过 evernote 账户， 需要在 Add-ons - clearly 的 preferences 里面 sing out， 或者卸载重装 clearly.</p>
+
+        <p>2、找到 clearly 插件的安装路径， 在 <code>~/.mozilla/firefox/sfhpk2t0.default/extensions</code> 中， 其中 <code>.mozilla/firefox/sfhpk2t0.default/extensions</code> 可能不同.</p>
+
+        <p>3、该目录中有个名为 <code>readable@evernote.com.xpi</code> 的文件，这就 clearly 插件, 使用zip压缩.</p>
+
+        <p>4、用 unzip 解压缩该文件（建议复制该文件到另外的临时目录），命令 ：</p>
+
+        <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">unzip readable@evernote.com.xpi
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+        <p>5、使用文本编辑器修改如下文件：</p>
+
+        <p>5.1、修改 <code>chrome/content/options/back.js</code> 第 458 行， 修改 <code>'has_chinese_locale': false </code>中的 <code>false</code> 为 <code>true</code></p>
+
+        <p>5.2、修改 <code>chrome/content/options/browser.js</code> 第 838 行， 修改 <code>'has_chinese_locale': false</code> 中的 <code>false</code> 为 <code>true</code></p>
+
+        <p>6、将修改后的文件重新使用 zip 压缩, 命令：</p>
+
+        <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">zip -r readable@evernote.com.xpi chrome chrome.manifest defaults install.rdf
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+        <p>7、然后将新的 <code>readable@evernote.com.xpi</code> 替换到 <code>~/.mozilla/firefox/sfhpk2t0.default/extensions</code> 目录下。</p>
+
+        <p>8、重新启动 firefox，找篇你要保存的网页，点击 clearly 图标， 然后点击 clip 按钮， 会要求你登录账户， 看见没有，出现了喜闻乐见的 “切换到印象笔记”.</p>
+
+        <p class="warning">点击 ”切换到 印象笔记“ 之后， 页面可能没有变化， 但是这时候已经可以用你的印象笔记账户登录了。
+            最后， 如果也使用 64 位 firefox 的， 可以<a href="http://vdisk.weibo.com/s/vvM_ykzgwoL">下载</a>我修改好的该插件.</p>
+    </div>
+
+
+
+
+</article>
+
+
+<article>
+
+    <header>
+
+        <h1 class="entry-title"><a href="/blog/2013/02/24/install-and-configure-openwrt-on-wr703n/">在wr703n下安装配置openwrt、openvpn</a></h1>
+
+
+        <p class="meta">
+
+
+
+
+
+
+
+
+
+
+
+
+            <time datetime="2013-02-24T14:21:00+08:00" pubdate data-updated="true">Feb 24<span>th</span>, 2013</time>
+
+        </p>
+
+    </header>
+
+
+    <div class="entry-content"><p class="info">距离上一篇文章快一年了……，最近由于原来的路由器被小强烧毁，买了一个wr703n路由器，顺便在上面折腾一下openwrt和openvpn，这篇文章记录一下过程,以后关于这个路由器的配置和折腾过程都会更新在这里.</p>
+
+        <h4 id="section">准备工作</h4>
+        <p>给路由器上电之后登陆配置页面看到生产批号是Build 120925,在<a href="http://wiki.openwrt.org/toh/tp-link/tl-wr703n">openwrt wiki</a>页面得知该路由器的硬件版本是1.7而不是路由器背面标注的1.6, 因此还是下载trunk版本的固件免得刷成砖头还需要使用ttl线修复。</p>
+
+        <p>下载地址在<a href="http://downloads.openwrt.org/snapshots/trunk/ar71xx/">这里</a>.</p>
+
+        <p>由于是从tp原厂固件升级到openwrt，因此下载factory版本，由于jffs2版本刷了之后经过测试占用空间过大无法装其他软件，因此用squashfs版本.</p>
+
+        <h4 id="section-1">刷机</h4>
+        <p>先用无线连接路由器，下载<code>openwrt-ar71xx-generic-tl-wr703n-v1-squashfs-factory.bin</code>后在路由器的默认管理页面中找到<code>系统工具-升级</code>的选项，然后使用下载的bin文件进行升级，等到页面显示重启后说明刷机结束.</p>
+
+        <h4 id="section-2">初步配置</h4>
+
+    </div>
+
+
+    <footer>
+        <a rel="full-article" href="/blog/2013/02/24/install-and-configure-openwrt-on-wr703n/">阅读全文 &rarr;</a>
+    </footer>
+
+
+
+</article>
+
+
+<article>
+
+    <header>
+
+        <h1 class="entry-title"><a href="/blog/2012/04/25/vim-tips-and-experience/">一些vim技巧和经验</a></h1>
+
+
+        <p class="meta">
+
+
+
+
+
+
+
+
+
+
+
+
+            <time datetime="2012-04-25T09:25:00+08:00" pubdate data-updated="true">Apr 25<span>th</span>, 2012</time>
+
+        </p>
+
+    </header>
+
+
+    <div class="entry-content"><p class="info">使用Linux和Vim学习写程序已经有一段时间了, 在Google和朋友们的帮助下学习到了一些非常有用的vim操作技巧和配置，还有一些个人觉得很好用的Vim插件，这篇博文就用来总结一下关于Vim的这些资料。</p>
+
+        <p>首先明确一些环境和一些术语说明：<br />
+            我所使用的是Debian Linux上的vim7.3版本；  <br />
+            下面的配置中，<code>&lt;C</code>表示<code>Ctrl</code>键，比如<code>&lt;C-v&gt;</code>表示按住<code>Ctrl</code>后按<code>v</code>键； <br />
+            下面的配置中，<code>&lt;M</code>表示<code>Alt</code>键，比如<code>&lt;M-t&gt;</code>表示按住<code>Alt</code>后按<code>t</code>键； <br />
+            我在说明中提到的“前”，一般的意思是“右或者下”，“后”的意思一般是“左或者上”；<br />
+            我提到的“字”一般表示一个英文字母或者一个汉字；  <br />
+            我提到的“词”表示一个英文单词，对于中文的话，被英文/标点符号等隔开的就算一个词而不是逻辑上的一个词语。</p>
+
+        <h3 id="section">一、基本操作篇</h3>
+        <p>这部分的内容，不需要使用额外的外挂和配置文件，事实上我觉得这也是使用Vim首先必须熟悉掌握的一些操作。</p>
+
+        <h4 id="section-1">1.切换模式</h4>
+
+        <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">Esc C-<span class="o">[</span> C-c i I o O a A v V &lt;C-v&gt;
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+    </div>
+
+
+    <footer>
+        <a rel="full-article" href="/blog/2012/04/25/vim-tips-and-experience/">阅读全文 &rarr;</a>
+    </footer>
+
+
+
+</article>
+
+
+<article>
+
+    <header>
+
+        <h1 class="entry-title"><a href="/blog/2012/04/22/use-gmail-plus-mutt-plus-msmtp-plus-offlineimap/">使用Gmail+Mutt+Msmtp+Offlineimap</a></h1>
+
+
+        <p class="meta">
+
+
+
+
+
+
+
+
+
+
+
+
+            <time datetime="2012-04-22T11:18:00+08:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2012</time>
+
+        </p>
+
+    </header>
+
+
+    <div class="entry-content"><p>在Linux下可以使用<a href="http://www.mozilla.org/thunderbird">Thunderbird</a>非常方便的收发邮件,但是我不喜欢一直开着一个GUI程序占用着任务栏或者一个桌面,因此我使用<a href="http://www.mutt.org">Mutt</a>来管理我的邮箱,使用<a href="http://msmtp.sourceforge.net/">Msmtp</a>发送邮件,使用<a href="http://offlineimap.org">Offlineimap</a>同步<a href="https://mail.google.com">Gmail</a>和本地收件箱,这里记录一下配置的过程,其中参考了网络上很多资料以及配置, 在这里表示感谢.</p>
+
+        <hr />
+        <p>##1.Offlineimap</p>
+
+        <p>首先配置[Offlineimap][],关于offlineimap的一些信息,可以参考它的主页,这里使用offlineimap是因为它可以把我的gmail收件箱中的邮件同步到本地目录, 方便离线查看邮件.
+            首先当然是安装offlineimap:<code>sudo apt-get install offlineimap</code>,然后编辑它的配置文件:<code>gedit ~/.offlineimaprc</code>,可以参考我的例子:</p>
+
+        <div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nv">ui</span> <span class="o">=</span> ttyui
+</span><span class="line"><span class="nv">accounts</span> <span class="o">=</span> GMail
+</span><span class="line">
+</span><span class="line"><span class="o">[</span>Account GMail<span class="o">]</span>
+</span><span class="line"><span class="nv">localrepository</span> <span class="o">=</span> Gmail-Local
+</span><span class="line"><span class="nv">remoterepository</span> <span class="o">=</span> Gmail-Remote
+</span><span class="line">
+</span><span class="line"><span class="o">[</span>Repository Gmail-Local<span class="o">]</span>
+</span><span class="line"><span class="nb">type</span> <span class="o">=</span> Maildir
+</span><span class="line"><span class="nv">localfolders</span> <span class="o">=</span> ~/Mails/Gmail
+</span><span class="line">
+</span><span class="line"><span class="o">[</span>Repository Gmail-Remote<span class="o">]</span>
+</span><span class="line"><span class="nb">type</span> <span class="o">=</span> Gmail
+</span><span class="line"><span class="nv">keepalive</span> <span class="o">=</span> 30
+</span><span class="line"><span class="nv">realdelete</span> <span class="o">=</span> yes
+</span><span class="line"><span class="nv">holdconnectionopen</span> <span class="o">=</span> yes
+</span><span class="line"><span class="nv">remoteuser</span> <span class="o">=</span> txc.yang@gmail.com
+</span><span class="line"><span class="nv">remotepass</span> <span class="o">=</span> xxxxx
+</span><span class="line"><span class="nv">remotepassfile</span> <span class="o">=</span> ~/.mutt/passwd
+</span><span class="line">
+</span><span class="line"><span class="c">#&quot;[Gmail]/Some Folder&quot; --&gt; some_folder</span>
+</span><span class="line"><span class="nv">nametrans</span> <span class="o">=</span> lambda folder: re.sub<span class="o">(</span><span class="s1">&#39;^inbox$&#39;</span>, <span class="s1">&#39;INBOX&#39;</span>,
+</span><span class="line">						   re.sub<span class="o">(</span><span class="s1">&#39; +&#39;</span>, <span class="s1">&#39;_&#39;</span>,
+</span><span class="line">						   re.sub<span class="o">(</span>r<span class="s1">&#39;.*/(.*)$&#39;</span>, r<span class="s1">&#39;\1&#39;</span>, folder<span class="o">)</span>.lower<span class="o">()))</span>
+</span><span class="line">
+</span><span class="line"><span class="c"># vim: ft=cfg tw=0</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+        <p>这里,我的邮箱目录是~/Mails/Gmail,可以根据自己的需要修改,在这里修改之后,也同样需要在后面提到的mutt的配置文件中修改相应的目录,配置完成后,可以在终端中使用<code>offlineimap -o</code>来下载邮件.
+            由于我的邮件不是很多,因此我设置每隔10分钟同步一次邮箱,我使用了这样一个同步邮件的脚本:
+    </div>
+
+
+    <footer>
+        <a rel="full-article" href="/blog/2012/04/22/use-gmail-plus-mutt-plus-msmtp-plus-offlineimap/">阅读全文 &rarr;</a>
+    </footer>
+
+
+
+</article>
+
+
+<article>
+
+    <header>
+
+        <h1 class="entry-title"><a href="/blog/2012/03/18/hello-octopress/">Hello Octopress</a></h1>
+
+
+        <p class="meta">
+
+
+
+
+
+
+
+
+
+
+
+
+            <time datetime="2012-03-18T11:53:00+08:00" pubdate data-updated="true">Mar 18<span>th</span>, 2012</time>
+
+        </p>
+
+    </header>
+
+
+    <div class="entry-content"><p>　　以前也折腾过好几个博客系统，开始使用过163等网站提供的博客，后来学习ASP,使用<a href="http://www.pjhome.net/">PJBLOG</a>搭建了一个博客，后来学习php，也就顺便转到了<a href="http://www.wordpress.org">wordpress</a>，但总是不太满意，ASP和PHP的空间不好搭建，其他网站的博客又不容易定制，总有很多不想要的内容，wordpress是一个伟大的博客系统，但是依赖数据库，速度也不是很给力，后来学习编程，接触到了git和<a href="http://www.github.com">github</a>,从github的page功能又了解到了<a href="http://octopress.org">Octopress</a>,它的很多特色正是我所需要的，比如支持<a href="http://daringfireball.net/projects/markdown/">Markdown</a>语法，使用纯静态页面,使用git做版本控制，又有着一个看起来挺酷的默认模版，支持语法高亮以及disqus、Google Analytic，最重要的是，有了在github上面搭建一个octopress的博客非常容易，这篇博客就记录我在github上面搭建octopress,以及配置JiaThis分享功能,有言评论功能以及侧边栏新浪微博的过程
+        。</p>
+
+    </div>
+
+
+    <footer>
+        <a rel="full-article" href="/blog/2012/03/18/hello-octopress/">阅读全文 &rarr;</a>
+    </footer>
+
+
+
+</article>
+
+<div class="pagination">
+
+    <a href="/blog/archives">Blog Archives</a>
+
+</div>
+</div>
+<aside class="sidebar">
+
+    <section>
+        <h1>版权协议</h1>
+        <p align="center"><a target="_ blank" rel="license" href="http://creativecommons.org/licenses/by/2.5/cn/"><img alt="知识共享许可协议" style="border-width:0" src="http://i.creativecommons.org/l/by/2.5/cn/88x31.png" /></a></p><a target="_ blank" rel="license" href="http://creativecommons.org/licenses/by/2.5/cn/">知识共享署名 2.5 中国大陆许可协议</a>
+    </section>
+    <section>
+        <h1>近期文章</h1>
+        <ul id="recent_posts">
+
+            <li class="post">
+                <a href="/blog/2014/03/08/zai-ying-wen-linux-zhong-shi-yong-firefox-de-yin-xiang-bi-ji-yue-du-cha-jian/">在英文 linux 中使用 firefox 的印象笔记-悦读插件</a>
+            </li>
+
+            <li class="post">
+                <a href="/blog/2013/02/24/install-and-configure-openwrt-on-wr703n/">在wr703n下安装配置openwrt、openvpn</a>
+            </li>
+
+            <li class="post">
+                <a href="/blog/2012/04/25/vim-tips-and-experience/">一些vim技巧和经验</a>
+            </li>
+
+            <li class="post">
+                <a href="/blog/2012/04/22/use-gmail-plus-mutt-plus-msmtp-plus-offlineimap/">使用Gmail+Mutt+Msmtp+Offlineimap</a>
+            </li>
+
+            <li class="post">
+                <a href="/blog/2012/03/18/hello-octopress/">Hello Octopress</a>
+            </li>
+
+        </ul>
+    </section>
+
+    <section>
+        <h1>新浪微博</h1>
+        <ul id="weibo">
+            <li>
+                <iframe
+                        width="100%"
+                        height="450"
+                        class="share_self"
+                        frameborder="0"
+                        scrolling="no"
+                        src="http://widget.weibo.com/weiboshow/index.php?width=0&height=550&ptype=1&speed=0&skin=&isTitle=0&noborder=1&isWeibo=1&isFans=&uid=1865624190&verifier=44dd67f8">
+                </iframe>
+            </li>
+        </ul>
+    </section>
+
+
+
+
+
+</aside>
+
+</div>
+</div>
+<footer role="contentinfo"><p>
+    Copyright &copy; 2014 - imtxc -
+    <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
